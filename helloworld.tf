@@ -49,7 +49,7 @@ resource "aws_route_table" "rotas_brq" {
 resource "aws_subnet" "subrede_brq" {
   vpc_id            = aws_vpc.vpc_brq.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  availability_zone = var.aws_az
   tags = {
     Name = "RonyRustico"
   }
@@ -117,7 +117,9 @@ resource "aws_eip" "ip_publico" {
   associate_with_private_ip = "10.0.1.51"
   depends_on                = [aws_internet_gateway.gw_brq]
 }
-
+output "ip_publico" {
+  value = aws_eip.ip_publico.public.id
+}
 
 resource "aws_instance" "app_web" {
   ami               = "ami-04505e74c0741db8d"
