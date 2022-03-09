@@ -126,7 +126,7 @@ output "ip_publico" {
 resource "aws_instance" "app_web" {
   ami               = "ami-04505e74c0741db8d"
   instance_type     = "t2.micro"
-  availability_zone = "us-east-1a"
+  availability_zone = var.aws_az
   network_interface {
     device_index         = 0
     network_interface_id = aws_network_interface.interface_rede.id
