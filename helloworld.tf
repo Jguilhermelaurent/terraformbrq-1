@@ -120,7 +120,7 @@ resource "aws_eip" "ip_publico" {
   depends_on                = [aws_internet_gateway.gw_brq]
 }
 output "ip_publico" {
-  value = aws_eip.ip_publico.public.id
+  value = aws_eip.ip_publico.public_id
 }
 
 resource "aws_instance" "app_web" {
