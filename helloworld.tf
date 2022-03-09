@@ -138,7 +138,7 @@ resource "aws_instance" "app_web" {
                sudo bash -c 'echo "<h1>site resenha news</h1>"  > /var/www/html/index.html'
              EOF
   tags = {
-    Name = "RaphaelVeiga"
+    Name = "pagina inicial do site web"
   }
 }
 
