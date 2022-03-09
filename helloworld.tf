@@ -7,6 +7,7 @@ terraform {
   }
 }
 
+
 provider "aws" {
   region     = "us-east-1"
   access_key = "id de acesso da aws"
@@ -14,12 +15,14 @@ provider "aws" {
 
 }
 
+
 resource "aws_vpc" "vpc_brq" {
   cidr_block = "10.0.0.0/16"
   tags = {
     Name = "VPC_legal"
   }
 }
+
 
 resource "aws_internet_gateway" "gw_brq" {
   vpc_id = aws_vpc.vpc_brq.id
